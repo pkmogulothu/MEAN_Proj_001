@@ -1,0 +1,31 @@
+<p>event-binding works!</p>
+<div class="container">
+    <div class="row" >
+    <div class="card">
+        <h2>Event Binding</h2>
+        <button (click)="showData($event)">Click here</button><br /><br /><br />
+        <p>{{butEv}}</p>
+        <button on-click="showData($event)">Click here</button>
+    </div>
+    <div class="card">
+        <h2>Property Binding</h2>
+        <input type="text" [value]="userName">
+    </div>
+    <div class="card">
+        <h2>Class Binding</h2>
+        <p [class]="myCSSClass">This paragraph class comes from *myClass* property </p>
+        <p [class.blue]="applyCSSClass">This paragraph class does not apply</p>
+    </div>
+</div>
+<div class="row">
+    <div class="card">
+        <h2>Style Binding</h2>
+        <p [style.color]="myColor">Text color is styled using style binding</p>
+    </div>
+    <div class="card">
+        <h2>Two Way Binding</h2>
+        <input type="text" [(ngModel)]="userName" />
+        <p>Two way binding! Hello {{ userName }}!</p>
+    </div>
+</div>
+</div>

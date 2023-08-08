@@ -1,0 +1,147 @@
+<!-- <div *ngIf="isId==0"; else onerow > -->
+
+<tbody>
+                  <!-- <ng-template #onerow> -->
+                  <div >
+                     <!-- <div *ngFor="let entry of expenseEntries" [ngClass]="{ 
+                        'red':entry.id === isId 
+                     }">
+                       {{ entry.id }}
+                     </div> -->
+                      // Get the Array item which matchs the id "2"
+                     var result = myArray.find(item => item.id === 2);
+                     // Get the Array item which matchs the id "2"
+                     <!-- <div  {{var result = expenseEntries.find(entry => entry.id === 2); 'result'result}}>
+                    rrrrrrr -->
+                  <!-- </div> -->
+                  entryid {{isId}}
+                  {{expenseEntries[isId-1]}}
+
+                  <div id="selectedEntry"> </div>
+
+<!-- <button class="btn btn-primary" (click)="isId = entry.id"> Directive-true </button> -->
+                     <tr *ngFor="let entry of expenseEntries"> 
+                        <th scope="row">{{ entry.item }}</th> 
+                        <th>{{ entry.amount }}</th> 
+                        <td>{{ entry.category }}</td> 
+                        <td>{{ entry.location }}</td> 
+                        <td>{{ entry.spendOn | date: 'mm-dd-yy' }}</td> 
+                         <td> <button type="button" (click)="UserClicked(entry); isId = entry.id">View/Edit</button></td>  
+                        <button class="btn btn-primary" (click)="isId = entry.id"> Directive-true </button>
+                       </tr> 
+                    </div>
+                    <!-- </ng-template> -->
+                </tbody>  
+
+
+
+                backup
+
+                <div class="container"> 
+                    <div class="row"> 
+                       <div class="" style="padding-top: 20px;">
+                          <div class="container" style="padding-left: 0px; padding-right: 0px;"> 
+                             <div class="row"> 
+                                <div class="col-sm" style="text-align: left;"> 
+                                   {{ titles }} 
+                                </div> 
+                                <div class="col-sm" style="text-align: right;"> 
+                                   <button type="button" class="btn btn-primary">Edit</button> 
+                                </div> 
+                             </div> 
+                          </div> 
+                          <div class="container box" style="margin-top: 10px;"> 
+                             <table class="table table-striped"> 
+                                <thead> 
+                                   <tr> 
+                                      <th>Item</th> 
+                                      <th>Amount</th> 
+                                      <th>Category</th> 
+                                      <th>Location</th> 
+                                      <th>Spent On</th>
+                                      <th>view</th> 
+                                   </tr> 
+                                </thead> 
+                                <tbody> 
+                                  
+                                   <tr *ngFor="let entry of expenseEntries"> 
+                                      <th scope="row">{{ entry.item }}</th> 
+                                      <th>{{ entry.amount }}</th> 
+                                      <td>{{ entry.category }}</td> 
+                                      <td>{{ entry.location }}</td> 
+                                      <td>{{ entry.spendOn | date: 'mm-dd-yy' }}</td> 
+                                      <td> <button type="button" (click)="UserClicked(entry)">View/Edit</button></td> 
+                                      
+                                     </tr> 
+                
+                                  <div id="selectedItem">
+                                           
+                                  </div>   
+                
+                               </tbody>
+                                               
+                            </table> 
+                          </div> 
+                       </div> 
+                    </div> 
+                 </div>
+                
+                 <div *ngIf="selectedEntry" class="container ">
+                   <div class="row"> 
+                      <div class="col-lg-12 text-center" style="padding-top: 20px;"> 
+                         <div class="container" style="padding-left: 0px; padding-right: 0px;"> 
+                            <div class="row"> 
+                               <div class="col-sm" style="text-align: left;"> 
+                                  Selected Entry 
+                               </div> 
+                               <div class="col-sm" style="text-align: right;"> 
+                                  <button type="button" class="btn btn-primary">Edit</button> 
+                               </div> 
+                            </div> 
+                         </div> 
+                         <div class="container box" style="margin-top: 10px;"> 
+                            <div class="row"> 
+                               <div class="col-2" style="text-align: right;">  
+                                  <strong><em>Item:</em></strong> 
+                               </div> 
+                               <div class="col" style="text-align: left;"> 
+                                  {{ selectedEntry.item }} 
+                               </div> 
+                            </div> 
+                            <div class="row"> 
+                               <div class="col-2" style="text-align: right;"> 
+                                  <strong><em>Amount:</em></strong> 
+                               </div> 
+                               <div class="col" style="text-align: left;">
+                                  {{ selectedEntry.amount }} 
+                               </div> 
+                            </div> 
+                            <div class="row"> 
+                               <div class="col-2" style="text-align: right;"> 
+                                  <strong><em>Category:</em></strong> 
+                               </div> 
+                               <div class="col" style="text-align: left;"> 
+                                  {{ selectedEntry.category }} 
+                               </div> 
+                            </div> 
+                            <div class="row"> 
+                               <div class="col-2" style="text-align: right;"> 
+                                  <strong><em>Location:</em></strong> 
+                               </div> 
+                               <div class="col" style="text-align: left;"> 
+                                  {{ selectedEntry.location }} 
+                               </div> 
+                            </div> 
+                            <div class="row"> 
+                               <div class="col-2" style="text-align: right;">
+                                  <strong><em>Spend On:</em></strong>
+                               </div> 
+                               <div class="col" style="text-align: left;"> 
+                                  {{ selectedEntry.spendOn }} 
+                               </div> 
+                            </div> 
+                         </div> 
+                      </div> 
+                   </div> 
+                </div>
+                

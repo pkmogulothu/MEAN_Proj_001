@@ -1,0 +1,91 @@
+<!-- <router-outlet> -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <img src="../../assets/Shikshaa_logo_white.svg" class="navbar-brand logo" href="#">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                         
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#" routerLinkActive="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled">Disabled</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+     
+    <!-- sidenav normal -->
+      <!-- <div class="sidenav">
+        <a href="/databinding">Databinding</a>
+        <a href="/directives">Directives</a>
+        <a href="/pipes">Pipes</a>
+        <a href="/reactiveProgramming">Reactive Programming</a>
+      </div> -->
+      
+      <!-- sidenav collapse -->
+      <div id="mySidebar" class="sidebar">
+        <div>
+        <div div="menu" class="opendiv">  
+                <a id="op" href="javascript:void(0)"  (click)="sidebarToggler.openNav1()">Open</a>
+                <a id="cl" href="javascript:void(0)" class="" (click)="sidebarToggler.closeNav1()">close</a>
+      </div>
+    </div>
+    <div id="mydis" class="dislink">
+        <a href="" routerLink="/login" >Login</a>
+        <a href="" routerLink="/databinding" >Data binding</a>
+        <a href="" routerLink="/eventbinding" >Event binding</a>
+        <a href="#" routerLink="/expenseentry">ExpenseEntry</a>
+        <a href="#" routerLink="/directive">Directives</a>
+        <a href="#" routerLink="/pipes">Pipes</a>
+        <a href="#" routerLink="/reactive">Reactive</a>
+        <a href="#" routerLink="/directive">Directives</a>
+        <a href="#" routerLink="/animations">Animations</a>
+      </div>
+      </div>
+           
+      <div id="main">
+        
+        <mat-button-toggle-group #toggleBtn="matButtonToggleGroup">  
+        <mat-button-toggle [(ngModel)]="checked" (ngModelChange)="sidebarToggler.openNav1()">
+          {{buttonText}}
+        </mat-button-toggle>
+        <mat-button-toggle [(ngModel)]="checked" (ngModelChange)="sidebarToggler.closeNav1()">
+          Cose Slidebar
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+        <p>Click on the hamburger menu/bar icon to open the sidebar, and push this content to the right.</p>
+        
+        <!-- router code -->
+        <router-outlet>
+        </router-outlet> 
+    
+    </div>
+    
+    
+
+      
+

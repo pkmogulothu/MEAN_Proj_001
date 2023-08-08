@@ -1,0 +1,25 @@
+.red { 
+    color: red; 
+ } 
+ .blue { 
+    color: blue; 
+ }
+
+ .container {
+    display:flex;
+    justify-content: space-around;
+ }
+
+ .row {
+    
+    display:flex;
+    justify-content: space-around; 
+ }
+ .card {
+    padding: 10px;
+    top: 20px;
+    /* max-width: max-content; */
+    background-color: rgb(219, 238, 248);
+    
+
+ }

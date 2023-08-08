@@ -1,0 +1,185 @@
+<div>
+    <div>
+      <div class="align-items-start signin">
+        <div class="col bg-light">
+          <form style="width: 300%;">
+            <div class="form-group col-sm-2 my-1">
+              <label for="exampleInputEmail1">User Id</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                placeholder="Enter email or phone number" />
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group col-sm-2 my-1">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" />
+            </div>
+            <div>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+                <label class="form-check-label" for="exampleCheck1">Keep me logged in</label>
+              </div>
+  
+              <button type="submit" class="btn btn-primary">Login</button>
+  
+            </div>
+          </form><br /><br /><br />
+        </div><br /><br />
+  
+  
+  
+  
+        <div *ngIf="pavan; else elseif">
+          <div class="col p-3 mb-2  bg-dark-subtle text-emphasis-dark">
+            <!-- event binding -->
+            <h2>Event Binding</h2>
+            <button (click)="showData($event)">Click here</button><br /><br /><br />
+            <p>{{butEv}}</p>
+            <!-- property binding -->
+            <input type="text" [value]="userName">
+            <br /><br /><br /><br /><br /><br />
+          </div>
+        </div>
+  
+        <ng-template #elseif>
+          <div class="col p-3 mb-2  bg-dark-subtle text-emphasis-dark">
+            <app-expense-entry></app-expense-entry>
+          </div>
+        </ng-template>
+  
+  
+        <div class="col bg-light">
+          <p [class]="myCSSClass">This paragraph class comes from *myClass* property </p>
+          <p [class.blue]="applyCSSClass">This paragraph class does not apply</p><br />
+  
+          <p [style.color]="myColor">Text color is styled using style binding</p><br />
+  
+          <input type="text" [(ngModel)]="userName" />
+          <p>Two way binding! Hello {{ userName }}!</p><br />
+  
+          <button class="btn btn-primary" (click)="isNeeded = true"> Directive-true </button>
+          <button class="btn btn-primary" (click)="isNeeded = false"> Directive-false </button>
+          <div *ngIf="isNeeded">
+            Only render if the *isNeeded* value has true value.
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  
+  </div>
+  
+  
+  <div class=" align-items-start signin">
+    <div class="col p-3 mb-2  bg-dark-subtle text-emphasis-dark ">
+  
+      features value is {{features}}
+  
+      <p> feat value is *ngIf</p>
+  
+      <!-- <div {{*ngIf features=false}}> -->
+      <p> p2 features value is {{features}}</p>
+      <div *ngIf=features>
+        <div id="expense">
+          <app-expense-entry></app-expense-entry>
+        </div>
+      </div>
+      <!-- </div> -->
+    </div>
+    <div class="col bg-light text-dark">
+  
+      <p>ngIfElse example!</p>
+      <div *ngIf="isLogIn; else isLogOut">
+        Hello you are logged in
+      </div>
+      <ng-template #isLogOut>
+        You're logged out..
+      </ng-template>
+    </div>
+  
+    <div class="col p-3 mb-2 bg-dark-subtle text-emphasis-dark">
+      <h2>ngFor directive</h2>
+      <ul>
+        <li *ngFor="let l of list">
+          {{l}}
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class=" align-items-start signin">
+    <div class="col bg-light">
+      <ul>
+        <li *ngFor="let std of studentArr; trackBy: trackByData">
+          {{std.name}}
+        </li>
+      </ul>
+    </div>
+  
+    <div class="col p-3 mb-2  bg-dark-subtle text-emphasis-dark ">
+      <h2>ngSwitch directive</h2>
+      <ul [ngSwitch]="logInName">
+        <li *ngSwitchCase="'user'">
+          <p>User is logged in..</p>
+        </li>
+        <li *ngSwitchCase="'admin'">
+          <p>admin is logged in</p>
+        </li>
+        <li *ngSwitchDefault>
+          <p>Please choose login name</p>
+        </li>
+      </ul>
+    </div>
+    <div class="col bg-light">
+      <div class="container">
+        <br />
+        <div *ngFor="let user of users" [ngClass]="{ 
+           'red':user.userName === 'User1' 
+        }">
+          {{ user.userName }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class=" align-items-start signin">
+    <div class="col p-3 mb-2  bg-dark-subtle text-emphasis-dark ">
+      <p appCustomstyle>abcd24px</p>
+  
+      <!-- ng-template example -->
+  
+      <ng-template [ngIf]=true>
+        <div>
+          <h2>ng-template works!</h2>
+        </div>
+      </ng-template>
+  
+      <p>child works!</p>
+      <p>{{pavan}}</p>
+    </div>
+  </div>
+  <app-expense-entry-list></app-expense-entry-list>
+  <!-- pipes -->
+  <div class="col p-3 mb-2  bg-dark-subtle text-emphasis-dark " style="text-align:center">
+    <div>
+      Today's date :- {{presentDate}} <br />
+  
+      Today's date :- {{presentDate | date }}
+      <div>
+        short date :- {{presentDate | date:'shortDate' }} <br /><br />
+        Full date :- {{presentDate | date:'fullDate' }} <br /><br />
+        Formatted date:- {{presentDate | date:'M/dd/yyyy'}} <br /><br />
+        Hours and minutes:- {{presentDate | date:'h:mm'}}
+      </div><br /><br />
+      <div>
+        Date with uppercase :- {{presentDate | date:'fullDate' | uppercase}} <br />
+        Date with lowercase :- {{presentDate | date:'medium' | lowercase}} <br />
+      </div>
+    </div>
+  </div>
+  
+  <div class="col p-3 mb-2  bg-dark-subtle text-emphasis-dark ">
+    <app-pipes></app-pipes>
+  </div>
+  
+  <div  >
+    <app-expense-entry-list></app-expense-entry-list>
+  </div>
